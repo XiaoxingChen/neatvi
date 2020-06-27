@@ -20,7 +20,7 @@ void term_init(void)
 	newtermios = termios;
 	newtermios.c_lflag &= ~(ICANON | ISIG);
 	newtermios.c_lflag &= ~ECHO;
-	tcsetattr(0, TCSAFLUSH, &newtermios);
+	tcsetattr(0, TCSANOW, &newtermios);
 	if (getenv("LINES"))
 		rows = atoi(getenv("LINES"));
 	if (getenv("COLUMNS"))
