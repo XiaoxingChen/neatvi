@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(neat_vi)
-
+if(CMAKE_SYSTEM_NAME MATCHES "^Android")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie -fPIE")
+endif()
 FILE(GLOB NEAT_VI_SRC ${CMAKE_CURRENT_LIST_DIR}/*.c)
 add_executable(vi ${NEAT_VI_SRC})
